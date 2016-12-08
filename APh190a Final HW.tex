@@ -1,0 +1,450 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{APh190a Final HW}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    \author{Zeren Lin}
+    \maketitle
+    
+    
+
+    
+    \section{ Definition and
+Explanation}\label{definition-and-explanation}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+Rotating wave approximation: terms in the Hamiltonian which oscillate at
+high frequencies are neglected. In that sense, the sin() function of the
+electric field is approximated by a rotating one. That's why it's called
+rotating wave approximation.
+
+Dipole approximation: assume that the electric field is a function of
+time only without spatial dependence. Higher orders of the eletric
+field-atom interactions, like the gradient or the curvation of the
+field, or the recoil motion of the atom, are neglected.
+
+
+\item
+
+Now since the electric field is quantized, the Rabi frequency depends
+not on the classical field strength (amplitude), rather than the number
+of photons in the mode. Moreover, due to quantization, the volume of the
+system, which determines the miminum available electric field per
+photon, comes into play. Also, because of zero-point energy which is
+truly a quantum effect, the atom will still exhibit oscillation when
+there is no electric field.
+
+As for the eigenvectors, now the atom becomes dressed, which means the
+eigenvectors are a combined eigenvectors of the atom and the electric
+field.
+
+\item
+
+Rate equation approximation: the polartization dephasing time is much
+shorter than the variation of electric field amplitude. Which means one
+can assume a constant eletric field amplitude at a certain time, solve
+the corresponding susceptibility and then go ahead to another time.
+Since the dephasing of polarization is assumed as quickly as it's
+generated, it's called rate equation approximation.
+
+\item
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The population of the two levels (diagonal terms in the density
+  matrix), as well as dipole terms (off-digaonal elements in the density
+  matrix), will show decay behavior due to interactions with the bath.
+  Especially, one of the two decay terms has population difference
+  dependence and the other only depends on the population of the upper
+  level. The first is the stimulated term and the second accounts for
+  spontaneous decay.
+\item
+  The two-level system will thermalize to the same temperature as the
+  bath. More explicitly, due to the finite transition rate, the system
+  will show linewidth corresponding to thermal broadening.
+\end{enumerate}
+
+\item
+
+On the one hand, becasue of coupling to the bath or some other kind of
+interactions, the population difference of the two levels will show a
+decay behavior. On the other hand, the gain of the system depends on the
+population difference. Therefore, the steady state solution of the
+population inversion, thus the gain, will show a saturation behavior.
+
+In the operation of a laser, this means that one can't increase the gain
+to infinity by increasing the laser input power, there will be
+saturation at some point.
+\end{enumerate}
+
+    \section{ Brillouin Amplification}\label{brillouin-amplification}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+  \item Heisenberg equations of motion
+
+$\frac{d b^+}{dt} = \frac{i}{\hbar} [H, b^+] = i \Omega [b^+b, b^+] + i \kappa a A^* e^{i \omega_p t}[b , b^+] = i \Omega b^+ + i \kappa a A^* e^{i \omega_p t}$
+(phonon equation)
+
+$\frac{d a}{dt} = \frac{i}{\hbar} [H, a] = i \omega_{s} [a^+a, a] + i \kappa b^+ A e^{-i \omega_p t}[a^+ , a] = -i \omega_{s} a - i \kappa b^+ A e^{-i \omega_p t}$
+(Stokes equation)
+
+Add phenomenlogical damping terms
+
+$\frac{d b^+}{dt} =  (i\Omega - \Gamma)b^+ + i \kappa a A^* e^{i \omega_p t}$
+(phonon equation)
+
+$\frac{d a}{dt} = (-i\omega_{s} - \gamma) a - i \kappa b^+ A e^{-i \omega_p t}$
+(Stokes equation)
+
+
+
+ \item Since $\Gamma \gg \gamma$, we can solve the phonon equation assuming
+$a$ is a constant first
+
+$b^+ (t) = \int_{-\infty}^t e^{(i\Omega - \Gamma)(t-z)}i \kappa a(z) A^* e^{i \omega_p z} dz \simeq i \kappa  A^* a(t) \int_{-\infty}^t e^{(i\Omega - \Gamma)(t-z)} e^{i \omega_p z} dz$
+
+Plug into the Stokes equation
+
+$\frac{d a}{dt} = (-i\omega_{s} - \gamma) a + \kappa^2  |A|^2 a\int_{-\infty}^t e^{(i\Omega - \Gamma)(t-z)} e^{-i \omega_p (t-z)} dz = (-i \omega_{s} - \gamma) a +  \frac{\kappa^2  |A|^2 }{i(\omega_p-\Omega)+\Gamma} a = \{i (-\omega_{s} - \frac{\kappa^2  |A|^2(\omega_p-\Omega) }{(\omega_p-\Omega)^2+\Gamma^2}) +  (\frac{\kappa^2  |A|^2 \Gamma}{(\omega_p-\Omega)^2+\Gamma^2}-\gamma )\}a$
+
+The optical gain of the Stokes field is given by
+
+$g = \frac{\kappa^2  |A|^2 \Gamma}{(\omega_p-\Omega)^2+\Gamma^2}-\gamma$
+
+The gain has its maximum when
+
+$\omega_p  = \Omega$
+
+Or the energy per photon of the pump field is equal to the energy of the
+phonon
+
+  \item The maximum gain is
+
+$g_m = \frac{\kappa^2  |A|^2 }{\Gamma}-\gamma$
+
+Therefore the threshold pumping level is
+
+$|A|^2_{thres}= \frac{\gamma \Gamma}{\kappa^2}$
+
+\end{enumerate}
+
+    \section{Purcell Effect}\label{purcell-effect}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+  \item The Hamiltonian is
+
+$H=E_1 n_1 + E_2 n_2 + \hbar \omega a^+a - \frac{\hbar \Omega_0}{2}  (\sigma_+ a + \sigma_- a^+)$
+
+Then the Heisenberg equation of motion for $n_2$ is
+
+$\frac{d n_2}{dt} = \frac{i}{\hbar} [H, n_2] = -i \frac{\Omega_0}{2}[\sigma_+  , n_2]a-i \frac{\Omega_0}{2}[\sigma_- , n_2]a^+ = i \frac{\Omega_0}{2}\sigma_+ a -i \frac{\Omega_0}{2} \sigma_- a^+$
+
+where
+
+$\frac{d \sigma_- a^+}{dt} = \frac{i}{\hbar} [H, \sigma_- a^+] =\frac{i}{\hbar}E_1[n_1, \sigma_- ]a^++\frac{i}{\hbar} E_2[n_2, \sigma_- ]a^+ +i\omega \sigma_-[a^+a,  a^+]-i \frac{\Omega_0}{2}[\sigma_+ a ,\sigma_- a^+] =\frac{i}{\hbar}E_1 \sigma_- a^+ - \frac{i}{\hbar} E_2\sigma_-a^+ +i\omega \sigma_- a^+-i \frac{\Omega_0}{2}\{(n_2-n_1)a^+ a + n_2\} = -i(\Omega-\omega)\sigma_- a^+  -i \frac{\Omega_0}{2}\{(n_2-n_1)a^+ a + n_2\}$
+
+For anti-nodes of the resonator
+
+$\langle a^+ a\rangle = n_p$
+
+which is hardly affected by the interaction with the atom
+
+Also
+
+$n_1+n_2 =1$ (identity matrix)
+
+Therefore
+
+$\frac{d \sigma_- a^+}{dt} = -i(\Omega-\omega)\sigma_- a^+  -i \frac{\Omega_0}{2} \{(2n_2-1)n_p + n_2\}$
+
+Add damping
+
+$\frac{d \sigma_- a^+}{dt} = (-i(\Omega-\omega)-\frac{1}{2\tau_p})\sigma_- a^+  -i \frac{\Omega_0}{2} \{(2n_2-1)n_p + n_2\}$
+
+Since $\tau_p$ is the fastest rate, we can solve $\sigma_- a^+$ first
+
+$\sigma_- a^+ = -i \frac{\Omega_0}{2} \{(2n_2-1)n_p + n_2\} \int_{-\infty}^t e^{(-i(\Omega-\omega)-\frac{1}{2\tau_p})(t-z)}dz =-i \frac{\Omega_0}{2} \frac{(2n_2-1)n_p + n_2}{i(\Omega-\omega)+\frac{1}{2\tau_p}} $
+
+Therefore
+
+$\frac{d n_2}{dt} = - \frac{\Omega_0^2}{4}\frac{(2n_2-1)n_p + n_2}{-i(\Omega-\omega)+\frac{1}{2\tau_p}}- \frac{\Omega_0^2}{4} \frac{(2n_2-1)n_p + n_2}{i(\Omega-\omega)+\frac{1}{2\tau_p}} = - \frac{\Omega_0^2}{4 \tau_p}\frac{(2n_2-1)n_p + n_2}{(\Omega-\omega)^2+(\frac{1}{2\tau_p})^2} =  \frac{\Omega_0^2}{4 \tau_p}\frac{2n_2-1}{(\Omega-\omega)^2+(\frac{1}{2\tau_p})^2} n_p +\frac{\Omega_0^2}{4 \tau_p}\frac{n_2}{(\Omega-\omega)^2+(\frac{1}{2\tau_p})^2}$
+
+  \item The decay rate of the electron is
+
+$\gamma_e = \frac{\Omega_0^2}{4 \tau_p}\frac{2n_2-1}{(\Omega-\omega)^2+(\frac{1}{2\tau_p})^2} n_p +\frac{\Omega_0^2}{4 \tau_p}\frac{n_2}{(\Omega-\omega)^2+(\frac{1}{2\tau_p})^2}= \frac{\Omega_0^2}{4 }\frac{\frac{\omega}{Q} (2n_2-1)}{(\Omega-\omega)^2+(\frac{\omega}{2Q})^2} n_p + \frac{\Omega_0^2}{4 }\frac{\frac{\omega}{Q}}{(\Omega-\omega)^2+(\frac{\omega}{2Q})^2} $
+
+where the first term in the stimulated term and the second one is the
+spontaneous decay
+
+$\gamma_{e, sp} =  \frac{\Omega_0^2}{4 }\frac{\frac{\omega}{Q}}{(\Omega-\omega)^2+(\frac{\omega}{2Q})^2}$
+
+For small detuning compared to optical decay rate
+
+$\gamma_{e, sp} \simeq   \frac{\Omega_0^2Q}{\omega} \propto \frac{Q}{V_{mode}}$
+
+   \item For two-level system in vacuum, the corresponding spontaneous decay
+rate is exactly
+
+$\gamma_{e, sp}^{(0)} =   \frac{\Omega_0^2Q}{\omega} $
+
+Then
+
+$\gamma_e = \frac{\Omega_0^2}{4 }\frac{\frac{\omega}{Q} (2n_2-1)}{(\Omega-\omega)^2+(\frac{\omega}{2Q})^2} n_p + \frac{\Omega_0^2}{4 }\frac{\frac{\omega}{Q}}{(\Omega-\omega)^2+(\frac{\omega}{2Q})^2}= \gamma_{e, sp}^{(0)}\frac{(\frac{\omega}{2Q})^2 (2n_2-1)}{(\Omega-\omega)^2+(\frac{\omega}{2Q})^2} n_p + \gamma_{e, sp}^{(0)}\frac{(\frac{\omega}{2Q})^2}{(\Omega-\omega)^2+(\frac{\omega}{2Q})^2} $
+
+For small detuning compared to optical decay rate
+
+$\gamma_e \simeq \gamma_{e, sp}^{(0)}(2n_2-1) n_p + \gamma_{e, sp}^{(0)} \propto \frac{Q}{V_{mode}} \{ (2n_2-1) n_p+1 \}$
+
+The decay rate can be greatly enhanced if $\frac{Q}{V_{mode}}$ is very
+large
+
+    \item We can then write the Heisenberg equation of motion for $a^+a$
+
+$\frac{d a^+a}{dt} = \frac{i}{\hbar} [H, a^+a] =-i \frac{\Omega_0}{2} \sigma_+ [a ,a^+a]-i \frac{\Omega_0}{2}\sigma_-[ a^+ ,a^+a] = -i \frac{\Omega_0}{2}\sigma_+ a + i \frac{\Omega_0}{2}\sigma_- a^+ = -\frac{d n_2}{dt}=  \frac{\Omega_0^2}{4 \tau_p}\frac{2n_2-1}{(\Omega-\omega)^2  +(\frac{1}{2\tau_p})^2} a^+a+\frac{\Omega_0^2}{4 \tau_p}\frac{ n_2}{(\Omega-\omega)^2+(\frac{1}{2\tau_p})^2}$
+
+Add damping term
+
+$\frac{d a^+a}{dt} =(  \frac{\Omega_0^2}{4 \tau_p}\frac{2n_2-1}{(\Omega-\omega)^2  +(\frac{1}{2\tau_p})^2} -\frac{1}{\tau})a^+a+\frac{\Omega_0^2}{4 \tau_p}\frac{ n_2}{(\Omega-\omega)^2+(\frac{1}{2\tau_p})^2}$
+
+Since the damping of $\sigma_- a^+$ comes from the damping of the
+electron and the damping of the photon, then
+
+$\frac{1}{\tau_p} \simeq \frac{1}{\tau} > \frac{\Omega_0^2}{4 \tau_p}\frac{2n_2-1}{(\Omega-\omega)^2  +(\frac{1}{2\tau_p})^2}$
+
+Therefore
+
+$a^+ a(t)\simeq a^+a(t=-\infty)e^{( \frac{\Omega_0^2}{4 \tau_p}\frac{2n_2-1}{(\Omega-\omega)^2  +(\frac{1}{2\tau_p})^2} -\frac{1}{\tau})t}+\frac{\Omega_0^2}{4 \tau_p}\frac{ n_2(t)}{(\Omega-\omega)^2+(\frac{1}{2\tau_p})^2}\int_{-\infty}^t e^{( \frac{\Omega_0^2}{4 \tau_p}\frac{2n_2-1}{(\Omega-\omega)^2  +(\frac{1}{2\tau_p})^2} -\frac{1}{\tau})(t-z)} dz \simeq a^+a(t=-\infty)e^{ -\frac{1}{\tau}t}+\frac{\Omega_0^2}{4 \tau_p}\frac{ n_2(t)}{(\Omega-\omega)^2+(\frac{1}{2\tau_p})^2} \int_{-\infty}^t e^{  -\frac{1}{\tau}(t-z)} dz \simeq \frac{\Omega_0^2}{4 \tau_p}\frac{ n_2 (t)}{(\Omega-\omega)^2+(\frac{1}{2\tau_p})^2}$
+
+Since $a^+a$ has the same time dependence as $n_2$, if we assume the
+optical decay rate is faster than the decay rate of the electron, the
+approximation still holds for the decay rate of the photon number in
+this mode.
+
+\end{enumerate}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
